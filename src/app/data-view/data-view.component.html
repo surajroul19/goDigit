@@ -1,0 +1,58 @@
+<h3>
+    Pet Details
+</h3>
+<div class="table-responsive">
+    <table class="table table-bordered" style="table-layout: fixed;width: 100%;">
+        <caption> 
+                    Pet Details
+        </caption>
+            <thead class="thead-dark">
+                <tr>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                    <th>
+                        Category
+                    </th>
+                    <th>
+                        Tags
+                    </th>
+                    <th>
+                        PhotoUrls
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of tableValue" style="border: 1px solid black;">
+                    <td *ngIf="data">
+                        {{data.id}}
+                    </td>
+                    <td  *ngIf="data">
+                        {{data.name}}
+                    </td >
+                    <td *ngIf="data">
+                        {{data.status}}
+                    </td>
+                    <td *ngIf="data.category">
+                        {{data.category.name}}
+                    </td>
+                    <td *ngIf="data.tags && data.tags.length>0" style="word-wrap: break-word;">
+                        <tr *ngFor="let value of data.tags" style="line-break: anywhere;">
+                            {{value.name}}
+                        </tr>  
+                    </td>
+                    <td *ngIf="data.photoUrls && data.photoUrls.length>0" style="word-wrap: break-word;">
+                        <tr *ngFor="let value of data.photoUrls" style="line-break: anywhere;">
+                            {{value}}
+                        </tr>  
+                    </td>
+                </tr>
+            </tbody>
+    </table>
+</div>
